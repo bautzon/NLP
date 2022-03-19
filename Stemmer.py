@@ -2,15 +2,17 @@ import spacy
 from nltk import Tree
 
 
-def file_to_string(file):
-    with open ("demofile.txt", "r",encoding="utf-8") as f:
-        data=f.readlines()
-        print(data)
-    datastring=''.join(data)
-    return datastring
+
+with open ("demofile.txt", "r",encoding="utf-8") as f:
+    data=f.readlines()
+    print(data)
+datastring=''.join(data)
 
 
+print(type(datastring))
 dependency_parser = spacy.load("en_core_web_sm")
+
+my_sentence = "I went to a flea market to hang up some clothes"
 my_parsed_sentence = dependency_parser(datastring)
 
 def to_nltk_tree(node):
