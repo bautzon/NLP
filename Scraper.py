@@ -69,6 +69,7 @@ def choose_method():
     3) Scrape from twitter hashtag
     4) Print data
     5) Quit
+    6) Save to file
     """)
     quit=False
     while quit == False:
