@@ -50,8 +50,6 @@ def print_scraped_data():
     else:
         print("No data stored. Did you scrape the data first?")    
 
-
-
 def determine_link():
     url=input("Skriv et link til et subreddit eller til et twitter hashtag ")
     if "reddit" in url:
@@ -61,40 +59,8 @@ def determine_link():
         scrape_twitter(hashtag)
 
 
-def choose_method():
-    print("""
-    Welcome - Choose an option
-    1) Scrape from link
-    2) Scrape from subreddit
-    3) Scrape from twitter hashtag
-    4) Print data
-    5) Quit
-    6) Save to file
-    """)
-    quit=False
-    while quit == False:
-        userinput=input("Write choice ")
-        if userinput=="1":
-            determine_link()
-        elif userinput=="2":
-            subredditinput=input("Write a subreddit name ")
-            scrape_subrreddit("https://www.reddit.com/r/"+subredditinput+".json?limit=10")
-        elif userinput=="3":
-            twitterinput=input("Write a topic to search twitter ")
-            scrape_twitter(twitterinput)
-        elif userinput=="4":
-            print_scraped_data()
-        elif userinput=="5":
-            quit=True
-        elif userinput=="6":
-            save_to_txt()
-        else:
-            print("Unable to understand")
-
-
-
-
 def save_to_txt():
+    print ("saving data to textfile")
     f = open("demofile.txt", "w",encoding="utf-8")
     for i in data['title']:
         f.write(i)
@@ -102,11 +68,3 @@ def save_to_txt():
 
 
 
-
-
-
-
-#todo: 
-# -find fælles parametre på tværs af twitter. Lige nu tager vi ikke likes fra twitter post, men dette er helt sikkert muligt.
-# -Overvej om vi skal bruge langdetect library til at få sproget på reddit post. Dette er muligt i tweepy angående tweeets og burde gøre NLP mere præcist
-# Lav et main module og et NLp module. Eventuelt OOp struktur. 

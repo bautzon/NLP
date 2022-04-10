@@ -19,18 +19,8 @@ def cleaner(text):
     tokenized=word_tokenize(cleaned)
     stemmer= PorterStemmer()
     c_text =[stemmer.stem(token) for token in tokenized]
-    c_text_string="".join(c_text)
+    c_text_string=" ".join(c_text)
 
     
     return c_text,c_text_string
 
-"""
-def counter(clean_text):
-    tokenized=word_tokenize(clean_text)
-    three_ngrams=ngrams(clean_text,3)
-    bigram=ngrams(tokenized,3)
-    counter=Counter(three_ngrams)
-    print(counter.most_common(2))
-
-
-"""
