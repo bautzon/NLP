@@ -8,7 +8,7 @@ debug=False
 choose_method()   #scraper
 cleaned_text_list=cleaner(data['title'])[0]
 cleaned_text_string=cleaner(data['title'])[1]
-make_tree(cleaned_text_string)         
+       
 
 
 

@@ -1,4 +1,5 @@
 from urllib.error import HTTPError
+import Stemmer
 import tweepy
 import requests
 import json
@@ -68,8 +69,9 @@ def choose_method():
     2) Scrape from subreddit
     3) Scrape from twitter hashtag
     4) Print data
-    5) Quit
-    6) Save to file
+    5) Print tree
+    5) Save to file
+    6) Quit
     """)
     quit=False
     while quit == False:
@@ -85,9 +87,12 @@ def choose_method():
         elif userinput=="4":
             print_scraped_data()
         elif userinput=="5":
-            quit=True
-        elif userinput=="6":
+            make_tree(cleaned_text_string)  
+        elif userinput=="5":
             save_to_txt()
+        elif userinput=="6":
+            quit=True
+            
         else:
             print("Unable to understand")
 
