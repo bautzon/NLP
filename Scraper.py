@@ -16,7 +16,7 @@ def scrape_twitter(hashtag):
     secret="t1HgnfQceyiviACoLBVeZ5mhVzwoVSGJrmHDvzznMOUdQu3uRX"
     api="SZPsGj9Ixdrfy1nhv6TzuzMbE"
     client=tweepy.Client(bearer_token=bearer)
-    response=client.search_recent_tweets(query=hashtag,max_results=10,tweet_fields=['lang','text','public_metrics'],expansions=['author_id'])
+    response=client.search_recent_tweets(query=hashtag,max_results=100,tweet_fields=['lang','text','public_metrics'],expansions=['author_id'])
     if response.data:
         print(f"Adding tweets regarding #{hashtag} ")
         for tweets in response.data:
@@ -41,14 +41,7 @@ def scrape_subrreddit(subreddit):
             data['upvotes'].append(upvotes)    
   except HTTPError as e:
       print(f"Fejl: {e}")
-
-
-def print_scraped_data():
-    if data:
-        print("Printing Data:")
-        print(data)
-    else:
-        print("No data stored. Did you scrape the data first?")    
+  
 
 def determine_link():
     url=input("Skriv et link til et subreddit eller til et twitter hashtag ")
@@ -58,13 +51,11 @@ def determine_link():
         hashtag=url.split("/")[-1][:-1]     #Extracting hashtag
         scrape_twitter(hashtag)
 
-
 def save_to_txt():
     print ("saving data to textfile")
     f = open("demofile.txt", "w",encoding="utf-8")
     for i in data['title']:
         f.write(i)
-
 
 
 

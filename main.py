@@ -1,6 +1,6 @@
 from sympy import source
 import spacy
-from nltk import Tree3
+from nltk import Tree
 from Scraper import *
 from Cleaner import *
 from Stemmer import *
@@ -29,7 +29,7 @@ def choose_method():
             twitterinput=input("Write a topic to search twitter ")
             scrape_twitter(twitterinput)
         elif userinput=="4":
-            print_scraped_data()
+            print_cleaned_data(data)
         elif userinput=="5":
             quit=True
         elif userinput=="6":
