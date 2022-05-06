@@ -54,7 +54,7 @@ def determine_link():
 def save_to_txt():
     print ("saving data to textfile")
     f = open("demofile.txt", "w",encoding="utf-8")
-    for i in data['title']:
+    for i in datalist:
         f.write(i)
 
 
